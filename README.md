@@ -21,6 +21,9 @@ KenLogger is a simple and colorful console logger for Dart and Flutter CLI apps.
 - 🎨 Colored output in supported terminals
 - 📦 Easy to use static methods
 
+## Preview
+![KenLogger Preview](preview.png)
+
 ## Installation
 
 ```bash
