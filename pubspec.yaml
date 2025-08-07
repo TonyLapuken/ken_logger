@@ -1,0 +1,22 @@
+name: ken_logger
+description: "A simple and colorful console logger for Dart and Flutter CLI apps."
+version: 0.0.1
+homepage: https://github.com/TonyLapuken/ken_logger
+repository: https://github.com/TonyLapuken/ken_logger
+issue_tracker: https://github.com/TonyLapuken/ken_logger/issues
+
+environment:
+  sdk: ">=3.8.1 <4.0.0"
+  flutter: ">=1.17.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+
+flutter:
+  # assets/fonts etc if needed
