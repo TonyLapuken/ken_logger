@@ -6,14 +6,19 @@ class KenLogger {
   static void success(Object message) => _log(message, LogType.success);
   static void warning(Object message) => _log(message, LogType.warning);
 
-
   static void _log(Object message, LogType type) {
     final prefix = _getPrefix(type);
     final colorCode = _getColorCode(type);
 
+    final date = DateTime.now();
+
+    String formattedDate =
+        '${date.year}-${date.month.toString().padLeft(2, '0')}-${date.day.toString().padLeft(2, '0')} '
+        '${date.hour.toString().padLeft(2, '0')}:${date.minute.toString().padLeft(2, '0')}:${date.second.toString().padLeft(2, '0')}';
+        
     // ANSI color formatting
     // ignore: avoid_print
-    print('\x1B[${colorCode}m$prefix: $message\x1B[0m');
+    print('$formattedDate \x1B[${colorCode}m$prefix: $message\x1B[0m');
   }
 
   static Object _getPrefix(LogType type) {
