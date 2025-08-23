@@ -1,3 +1,5 @@
+import 'package:ansicolor/ansicolor.dart';
+
 enum LogType { error, info, success, warning }
 
 class KenLogger {
@@ -15,35 +17,40 @@ class KenLogger {
     String formattedDate =
         '${date.year}-${date.month.toString().padLeft(2, '0')}-${date.day.toString().padLeft(2, '0')} '
         '${date.hour.toString().padLeft(2, '0')}:${date.minute.toString().padLeft(2, '0')}:${date.second.toString().padLeft(2, '0')}';
-        
+
     // ANSI color formatting
+    AnsiPen pen = AnsiPen()..xterm(colorCode as int);
     // ignore: avoid_print
-    print('$formattedDate \x1B[${colorCode}m$prefix: $message\x1B[0m');
+    print('$formattedDate ${pen('$prefix: $message')}');
   }
 
   static Object _getPrefix(LogType type) {
     switch (type) {
       case LogType.error:
-        return '[🗙 ERROR]';
+        return '[❌ ERROR]';
       case LogType.info:
-        return '[🛈 INFO]';
+        return '[ℹ️ INFO]';
       case LogType.success:
-        return '[✔ SUCCESS]';
+        return '[✅ SUCCESS]';
       case LogType.warning:
-        return '[⚠ WARNING]';
+        return '[⚠️ WARNING]';
     }
   }
 
   static Object _getColorCode(LogType type) {
     switch (type) {
       case LogType.error:
-        return '31'; // Red
+        // Red
+        return 9;
       case LogType.info:
-        return '34'; // Blue
+        // Blue
+        return 12;
       case LogType.success:
-        return '32'; // Green
+        // Green
+        return 10;
       case LogType.warning:
-        return '33'; // Yellow
+        // Yellow
+        return 11;
     }
   }
 }
