@@ -24,13 +24,13 @@ class KenLogger {
   static Object _getPrefix(LogType type) {
     switch (type) {
       case LogType.error:
-        return '[🗙 ERROR]';
+        return '[❌  ERROR]';
       case LogType.info:
-        return '[🛈 INFO]';
+        return '[ℹ️  INFO]';
       case LogType.success:
-        return '[✔ SUCCESS]';
+        return '[✅  SUCCESS]';
       case LogType.warning:
-        return '[⚠ WARNING]';
+        return '[⚠️  WARNING]';
     }
   }
 
